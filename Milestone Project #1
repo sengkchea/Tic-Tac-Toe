@@ -8,4 +8,26 @@ def display_board(board):
 
 board = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
 
+def player_input():
+    #take in player input and assign as 'X' or 'O'
+    player1_marker = ' '
+    player2_marker = ' '
+
+    #keep asking if player doesn't provide an 'X' or 'O'
+    while player1_marker != 'X' and player1_marker != 'O':
+        player1_marker = input('Player 1, which marker will you use? ')
+
+        if player1_marker == 'X':
+            player2_marker = 'O'
+        else:
+            player1_marker = 'O'
+            player2_marker = 'X'
+
+    #let players know their markers
+    print(f"Player 1 will be {player1_marker}'s.")
+    print(f"Player 2 will be {player2_marker}'s.")
+
+    return player1_marker, player2_marker            
+
 display_board(board)
+player_input()
