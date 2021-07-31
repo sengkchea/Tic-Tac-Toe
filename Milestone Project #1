@@ -3,10 +3,15 @@ def display_board(board):
     print('\n'*100)
 
     #print current board
-    print(board)
+    print('Current board: \n')
+    print(board[7:10])
+    print(board[4:7])
+    print(board[1:4])
+    print('\n')
 
-
-board = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
+board = ['0','1','2','3','4','5','6' ,'7','8', '9']
+marker = ' '
+position = 0
 
 def player_input():
     #take in player input and assign as 'X' or 'O'
@@ -18,10 +23,13 @@ def player_input():
         player1_marker = input('Player 1, which marker will you use? ')
 
         if player1_marker == 'X':
+            player1_marker = 'X'
             player2_marker = 'O'
-        else:
+        elif player1_marker == 'O':
             player1_marker = 'O'
             player2_marker = 'X'
+        else:
+            print("The only markers available are 'X' or 'O'.")
 
     #let players know their markers
     print(f"Player 1 will be {player1_marker}'s.")
@@ -29,5 +37,23 @@ def player_input():
 
     return player1_marker, player2_marker            
 
+def place_marker(board, marker, position):
+    #takes board list, marker, and desired position (1-9) and assigns it to the board 
+    position = int(input("Please select the board position you would like to place your marker. "))
+
+    #update board - checking to make sure the space is not currently marked
+    while  board[position] == 'X' or board[position] == 'O':  
+        print("This position is unavailable.")
+        position = int(input("Please select the board position you would like to place your marker. "))
+    
+    board[position] = marker
+
+    return board
+
 display_board(board)
-player_input()
+#marker1 = player_input()
+(player1_marker, player2_marker) = player_input()
+place_marker(board, player1_marker, position)
+display_board(board)
+
+
