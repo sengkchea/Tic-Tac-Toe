@@ -1,2 +1,11 @@
 def display_board(board):
-    pass
+    #scroll previous board out of view
+    print('\n'*100)
+
+    #print current board
+    print(board)
+
+
+board = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
+
+display_board(board)
