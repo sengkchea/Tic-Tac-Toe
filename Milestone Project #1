@@ -39,20 +39,40 @@ def player_input():
 
 def place_marker(board, marker, position):
     #takes board list, marker, and desired position (1-9) and assigns it to the board 
-    position = int(input("Please select the board position you would like to place your marker. "))
+    acceptable_range = range(0,10)
+    within_range = False
+    position = ''
 
-    #update board - checking to make sure the space is not currently marked
-    while  board[position] == 'X' or board[position] == 'O':  
+    #check if the chosen position is a number between 1-9
+    while position.isdigit() == False or within_range == False:  
+        position = input("Please select the board position you would like to place your marker. ")
+
+        #digit check
+        if position.isdigit() == False:
+            print("Sorry, this is not a digit.")
+        #range check
+        elif position.isdigit() == True:
+            if int(position) in acceptable_range:
+                within_range = True
+            else:
+                print("Sorry, please pick a number between 1-9")
+
+    #update board - checking to make sure the space is not currently marked, position is a number between 1-9
+    while (board[int(position)] == 'X' or board[int(position)] == 'O'):
         print("This position is unavailable.")
-        position = int(input("Please select the board position you would like to place your marker. "))
+
+        position = input("Please select the board position you would like to place your marker. ")
     
-    board[position] = marker
+    #set the chosen position to be the marker
+    board[int(position)] = marker
 
     return board
 
 display_board(board)
 #marker1 = player_input()
 (player1_marker, player2_marker) = player_input()
+place_marker(board, player1_marker, position)
+display_board(board)
 place_marker(board, player1_marker, position)
 display_board(board)
 
