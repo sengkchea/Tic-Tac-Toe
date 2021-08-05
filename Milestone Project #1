@@ -68,6 +68,18 @@ def place_marker(board, marker, position):
 
     return board
 
+def win_check(board, marker):
+    #check if there is a winner
+    return ((board[1] == marker and board[2] == marker and board[3] == marker) #across bottom
+            or (board[4] == marker and board[5] == marker and board[6] == marker) #across middle
+            or (board[7] == marker and board[8] == marker and board[9] == marker) #across top
+            or (board[1] == marker and board[5] == marker and board[9] == marker) #diagonal (bottom left to top right)
+            or (board[7] == marker and board[5] == marker and board[3] == marker) #diagonal (top left to bottom right)
+            or (board[7] == marker and board[4] == marker and board[1] == marker) #down left column
+            or (board[8] == marker and board[5] == marker and board[2] == marker) #down center column
+            or (board[9] == marker and board[6] == marker and board[3] == marker) #down right column
+            )
+
 display_board(board)
 #marker1 = player_input()
 (player1_marker, player2_marker) = player_input()
@@ -75,5 +87,3 @@ place_marker(board, player1_marker, position)
 display_board(board)
 place_marker(board, player1_marker, position)
 display_board(board)
-
-
