@@ -1,3 +1,5 @@
+import random
+
 def display_board(board):
     #scroll previous board out of view
     print('\n'*100)
@@ -80,7 +82,16 @@ def win_check(board, marker):
             or (board[9] == marker and board[6] == marker and board[3] == marker) #down right column
             )
 
-testing
+def choose_first():
+    #randomly decide who goes first
+    x = random.randint(0,1)
+
+    if x == 0:
+        print("Player 1 goes first")
+    else:
+        print("Player 2 goes first")
+    
+test
 
 display_board(board)
 #marker1 = player_input()
