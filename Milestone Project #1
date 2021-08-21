@@ -87,11 +87,10 @@ def choose_first():
     x = random.randint(0,1)
 
     if x == 0:
-        print("Player 1 goes first")
+        return 'Player 1'
     else:
-        print("Player 2 goes first")
+        return 'Player 2'
     
-test
 
 display_board(board)
 #marker1 = player_input()
@@ -100,3 +99,5 @@ place_marker(board, player1_marker, position)
 display_board(board)
 place_marker(board, player1_marker, position)
 display_board(board)
+x = choose_first()
+print(x)
