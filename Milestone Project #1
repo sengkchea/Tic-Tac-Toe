@@ -80,6 +80,8 @@ def win_check(board, marker):
             or (board[9] == marker and board[6] == marker and board[3] == marker) #down right column
             )
 
+testing
+
 display_board(board)
 #marker1 = player_input()
 (player1_marker, player2_marker) = player_input()
